@@ -1,9 +1,14 @@
-// 1.21.1	2026-05-20T17:05:18.882699	Universal Materials Block Tag Provider
-37fff92ba0e44535e9dcb01901679c5ff9bf94fa data/c/tags/block/storage_blocks.json
+// 1.21.1	2026-05-20T19:13:34.6305863	Universal Materials Block Tag Provider
+12776ac631278f479e868e125574e649483827a9 data/c/tags/block/storage_blocks.json
 b98a5378ae1852b44e1d79418303ac9dc792239d data/c/tags/block/storage_blocks/bronze.json
+23752f4d9bc9d9b89d20e92bb61b8a781d2c8095 data/c/tags/block/storage_blocks/conductive_alloy.json
 01e792f1f30f8e933d35333aa3c2f5242fd6d558 data/c/tags/block/storage_blocks/lead.json
+a750a6c4b449450912f0f9d2ed63bc4a19fa819e data/c/tags/block/storage_blocks/pulsating_alloy.json
 ccc0ab9136cb8eb336c4620755493aa4f8acd011 data/c/tags/block/storage_blocks/sapphire.json
 0f217ab077ab7080d5b7cccad291edb076d246ab data/c/tags/block/storage_blocks/silver.json
 4d12516c78f58fc8e4af4cf668f71c4d5dac0e71 data/c/tags/block/storage_blocks/steel.json
 d7c834e6125cbcd5b6fbc1d71c2db8f0fb617e1d data/c/tags/block/storage_blocks/tin.json
-d8032a50a2e28ae1ddd92363e5005348b60bb18a data/minecraft/tags/block/mineable/pickaxe.json
+914db65b45e3013f6c6365a57142db8789359605 data/minecraft/tags/block/beacon_base_blocks.json
+9730b307022f3fb23366068bca57c7fd6011c546 data/minecraft/tags/block/mineable/pickaxe.json
+d4466b52a01f1b40f5e5b0948b6704210e80b1d3 data/minecraft/tags/block/needs_iron_tool.json
+59edf82ef37c27937b28f30092b71793fb47e088 data/minecraft/tags/block/needs_stone_tool.json

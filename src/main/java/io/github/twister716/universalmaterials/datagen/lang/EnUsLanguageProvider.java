@@ -44,6 +44,8 @@ public class EnUsLanguageProvider extends LanguageProvider {
         add("tooltip." + UniversalMaterials.MOD_ID + ".element_symbol",   "Element symbol: §l%s");
         add("tooltip." + UniversalMaterials.MOD_ID + ".material_info",    "Material info: §l%s");
 
+        add("tooltip." + UniversalMaterials.MOD_ID + ".compat_material",  "%s Compat Material");
+
         // ===== TagPrefixのフォーマット文字列 =====
         for (TagPrefix prefix : TagPrefix.getRegistry().values()) {
             add("tagprefix." + UniversalMaterials.MOD_ID + "." + prefix.getId(),

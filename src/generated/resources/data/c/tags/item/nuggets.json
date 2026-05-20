@@ -27,6 +27,14 @@
     {
       "id": "#c:nuggets/bronze",
       "required": false
+    },
+    {
+      "id": "#c:nuggets/pulsating_alloy",
+      "required": false
+    },
+    {
+      "id": "#c:nuggets/conductive_alloy",
+      "required": false
     }
   ]
 }

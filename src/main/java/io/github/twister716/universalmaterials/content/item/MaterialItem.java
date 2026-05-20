@@ -10,6 +10,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.neoforged.fml.ModList;
 
 import java.util.List;
 
@@ -119,6 +120,17 @@ public class MaterialItem extends Item {
                             Component.translatable(descKey)
                                     .withStyle(ChatFormatting.BOLD))
                     .withStyle(ChatFormatting.GREEN));
+        }
+
+        // Compat Material（compatNameが設定されている場合のみ表示）
+        // 例: "Thermal Expansion Compat Material"
+        if (material.getCompatName() != null
+                && material.getCompatModId() != null
+                && ModList.get().isLoaded(material.getCompatModId())) {
+            tooltip.add(Component.translatable(
+                            "tooltip.universalmaterials.compat_material",
+                            Component.literal(material.getCompatName()))
+                    .withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.BOLD));
         }
     }
 

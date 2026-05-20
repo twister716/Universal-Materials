@@ -1,0 +1,28 @@
+{
+  "values": [
+    {
+      "id": "universalmaterials:steel_block",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:lead_block",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:silver_block",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:pulsating_alloy_block",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:conductive_alloy_block",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:sapphire_block",
+      "required": false
+    }
+  ]
+}

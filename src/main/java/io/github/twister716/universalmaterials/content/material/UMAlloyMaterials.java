@@ -4,6 +4,8 @@ import io.github.twister716.universalmaterials.api.material.AutoMaterialRegistry
 import io.github.twister716.universalmaterials.api.material.Material;
 import io.github.twister716.universalmaterials.api.material.UMMaterialRegistry;
 import io.github.twister716.universalmaterials.api.material.iconset.MaterialIconSet;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.SoundType;
 
 import static io.github.twister716.universalmaterials.api.material.flag.MaterialFlags.*;
 
@@ -30,6 +32,8 @@ public class UMAlloyMaterials extends UMMaterialRegistry {
             .color(0x808080).secondaryColor(0x3d3d3d)
             .iconSet(MaterialIconSet.METALLIC)
             .appendFlags(GENERATE_INGOT, GENERATE_NUGGET, GENERATE_STORAGE_BLOCK)
+            .flags(GENERATE_BEACON_MATERIAL)
+            .miningLevel(BlockTags.NEEDS_IRON_TOOL).soundType(SoundType.METAL)
             .requireMaterial(UMVanillaMaterials.IRON)
             .buildAndRegister();
 
@@ -39,6 +43,7 @@ public class UMAlloyMaterials extends UMMaterialRegistry {
             .description("A metal made by adding tin to copper, which has excellent workability and is more resistant to rust than iron")
             .color(0xCD7F32)
             .iconSet(MaterialIconSet.METALLIC)
+            .soundType(SoundType.COPPER)
             .appendFlags(GENERATE_INGOT, GENERATE_NUGGET, GENERATE_STORAGE_BLOCK)
             .requireMaterial(UMVanillaMaterials.COPPER, UMMetalMaterials.TIN)
             .buildAndRegister();

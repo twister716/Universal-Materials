@@ -2,7 +2,6 @@ package io.github.twister716.universalmaterials.datagen.tag;
 
 import io.github.twister716.universalmaterials.UniversalMaterials;
 import io.github.twister716.universalmaterials.api.material.Material;
-import io.github.twister716.universalmaterials.api.material.Material;
 import io.github.twister716.universalmaterials.api.material.UMMaterialRegistry;
 import io.github.twister716.universalmaterials.api.material.flag.MaterialFlag;
 import io.github.twister716.universalmaterials.api.material.flag.MaterialFlags;
@@ -19,12 +18,17 @@ import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * ブロックタグJSON（data/minecraft/tags/block/・data/c/tags/block/）を自動生成するProvider。
+ * ブロックタグJSON（data/minecraft/tags/block/ 等）を自動生成するProvider。
  *
  * 生成するタグ:
- * - minecraft:mineable/pickaxe（全素材ブロックをツルハシで採掘可能にする）
- * - c:storage_blocks/<素材名>（保管ブロックの個別タグ）
- * - c:storage_blocks（保管ブロックの親タグ）
+ *   minecraft:mineable/pickaxe    → 全素材ブロックをツルハシで採掘可能にする
+ *   素材のminingLevelタグ         → 必要採掘ツールレベルを登録する
+ *   c:storage_blocks/<素材名>     → 保管ブロックの個別タグ
+ *   c:storage_blocks              → 保管ブロックの親タグ
+ *   minecraft:beacon_base_blocks  → GENERATE_BEACON_MATERIALフラグを持つ素材のブロック
+ *
+ * GENERATE_BEACON_MATERIALはflags()で付ける素材特性フラグなので
+ * hasPropertyFlag()で判定する。
  */
 public class MaterialBlockTagProvider extends BlockTagsProvider {
 
@@ -54,14 +58,6 @@ public class MaterialBlockTagProvider extends BlockTagsProvider {
         }
     }
 
-    /**
-     * 1つのTagPrefixのブロックにタグを付ける。
-     *
-     * 例（STORAGE_BLOCKの場合）:
-     *   minecraft:mineable/pickaxe → universalmaterials:tin_block を追加
-     *   c:storage_blocks/tin      → universalmaterials:tin_block を追加
-     *   c:storage_blocks          → #c:storage_blocks/tin を追加
-     */
     private void registerBlockTags(Material material, String materialName, TagPrefix prefix) {
         ResourceLocation blockId = ResourceLocation.fromNamespaceAndPath(
                 UniversalMaterials.MOD_ID, prefix.formatId(materialName));
@@ -70,7 +66,6 @@ public class MaterialBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.MINEABLE_WITH_PICKAXE).addOptional(blockId);
 
         // 素材の採掘レベルタグを登録する
-        // 例: BlockTags.NEEDS_STONE_TOOL → 石ツルハシ以上が必要
         tag(material.getMiningLevel()).addOptional(blockId);
 
         // c:タグ（個別 → 親）を登録する
@@ -87,6 +82,11 @@ public class MaterialBlockTagProvider extends BlockTagsProvider {
                 tag(parentTag).addOptionalTag(individualTag);
             }
         }
+
+        // GENERATE_BEACON_MATERIALはflags()で付ける素材特性フラグ → hasPropertyFlag()で判定する
+        if (material.hasPropertyFlag(MaterialFlags.GENERATE_BEACON_MATERIAL)) {
+            tag(BlockTags.BEACON_BASE_BLOCKS).addOptional(blockId);
+        }
     }
 
     @Override
@@ -94,4 +94,3 @@ public class MaterialBlockTagProvider extends BlockTagsProvider {
         return "Universal Materials Block Tag Provider";
     }
 }
-

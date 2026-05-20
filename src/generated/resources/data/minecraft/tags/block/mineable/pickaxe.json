@@ -21,6 +21,14 @@
       "required": false
     },
     {
+      "id": "universalmaterials:pulsating_alloy_block",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:conductive_alloy_block",
+      "required": false
+    },
+    {
       "id": "universalmaterials:sapphire_block",
       "required": false
     }

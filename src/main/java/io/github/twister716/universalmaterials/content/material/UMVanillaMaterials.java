@@ -4,6 +4,7 @@ import io.github.twister716.universalmaterials.api.material.AutoMaterialRegistry
 import io.github.twister716.universalmaterials.api.material.Material;
 import io.github.twister716.universalmaterials.api.material.UMMaterialRegistry;
 import io.github.twister716.universalmaterials.api.material.iconset.MaterialIconSet;
+import net.minecraft.tags.BlockTags;
 
 import static io.github.twister716.universalmaterials.api.material.flag.MaterialFlags.*;
 
@@ -33,6 +34,7 @@ public class UMVanillaMaterials extends UMMaterialRegistry {
     public static final Material GOLD = new Material.Builder("gold")
             .color(0xFFD700)
             .iconSet(MaterialIconSet.METALLIC)
+            .miningLevel(BlockTags.NEEDS_IRON_TOOL)
             .flags(IS_VANILLA)
             .buildAndRegister();
 
@@ -48,6 +50,7 @@ public class UMVanillaMaterials extends UMMaterialRegistry {
     public static final Material NETHERITE = new Material.Builder("netherite")
             .color(0x4A4A4A)
             .iconSet(MaterialIconSet.METALLIC)
+            .miningLevel(BlockTags.NEEDS_DIAMOND_TOOL)
             .appendFlags(GENERATE_NUGGET)
             .flags(IS_VANILLA)
             .buildAndRegister();

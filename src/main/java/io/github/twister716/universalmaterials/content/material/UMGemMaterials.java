@@ -4,6 +4,7 @@ import io.github.twister716.universalmaterials.api.material.AutoMaterialRegistry
 import io.github.twister716.universalmaterials.api.material.Material;
 import io.github.twister716.universalmaterials.api.material.UMMaterialRegistry;
 import io.github.twister716.universalmaterials.api.material.iconset.MaterialIconSet;
+import net.minecraft.tags.BlockTags;
 
 import static io.github.twister716.universalmaterials.api.material.flag.MaterialFlags.*;
 
@@ -33,6 +34,7 @@ public class UMGemMaterials extends UMMaterialRegistry {
     public static final Material SAPPHIRE = new Material.Builder("sapphire")
             .color(0x0000FF)
             .iconSet(MaterialIconSet.METALLIC)
+            .miningLevel(BlockTags.NEEDS_IRON_TOOL)
             .appendFlags(GENERATE_STORAGE_BLOCK)
             .buildAndRegister();
 }

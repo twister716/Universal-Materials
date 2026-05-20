@@ -1,21 +1,30 @@
-// 1.21.1	2026-05-20T17:05:18.8774997	Universal Materials Item Tag Provider
-f4704acbddc75b300df64ef447e28375d7cd164d data/c/tags/item/ingots.json
+// 1.21.1	2026-05-20T20:21:21.3327074	Universal Materials Item Tag Provider
+ccad134f99366a89b42003c5ce29127f295cc8cc data/c/tags/item/dusts.json
+66eb00067db2f6a97b821328b346d7b4514c2c52 data/c/tags/item/dusts/conductive_alloy.json
+1463fa5c0a23a7b52ffbab07bd4104bf6ce99e25 data/c/tags/item/dusts/pulsating_alloy.json
+a8c8c57c69614dbe9db98188902738a417e36994 data/c/tags/item/ingots.json
 4907267697132d964a9360c0fea612b1c0cb8b45 data/c/tags/item/ingots/bronze.json
+bb5eb67f4bc47ae0dd63160b9687a5c9fee7269f data/c/tags/item/ingots/conductive_alloy.json
 26e2272c17e56e830588123dff7ae65546b281f5 data/c/tags/item/ingots/lead.json
+f19305cfc9a35508ee33af14fde54273fa20760a data/c/tags/item/ingots/pulsating_alloy.json
 2fba9868e55b53cdaf71688c94c068f46f48484e data/c/tags/item/ingots/silver.json
 f659476cc59c1eac69570a3f10b3b468b1fd7429 data/c/tags/item/ingots/steel.json
 d3731d5488b4b72def4c23ee7932f8f8c287f0f6 data/c/tags/item/ingots/tin.json
-0c46087e2a01c763821aff2863566c58e3e67622 data/c/tags/item/nuggets.json
+41aa6d7367b79dbcfcc93730ec19346cd6da490a data/c/tags/item/nuggets.json
 611650348312925cac1fa9c8b357eaa2936032a5 data/c/tags/item/nuggets/bronze.json
+ddb35b30d492d6c574203b61e8ea6cd79fe40217 data/c/tags/item/nuggets/conductive_alloy.json
 3e1271c9b66b1abf5de5bdcb5ab9c5fd60220bbf data/c/tags/item/nuggets/copper.json
 e1adf0da0b578d2467b83967a8dd9e3c8bf6741d data/c/tags/item/nuggets/lead.json
 42200a98d5a57c14e5e4d1db0ec9adcebf2b327f data/c/tags/item/nuggets/netherite.json
+ebbba65e4b92cdfa5af0053dfab251aec3adf5b3 data/c/tags/item/nuggets/pulsating_alloy.json
 cd00c59e2a17fd4322bef8433da50107edafca94 data/c/tags/item/nuggets/silver.json
 4b7359f50f484276150d82aeb09162b86cbd2748 data/c/tags/item/nuggets/steel.json
 63264155aeef9b8010a84197be96b479801f522b data/c/tags/item/nuggets/tin.json
-37fff92ba0e44535e9dcb01901679c5ff9bf94fa data/c/tags/item/storage_blocks.json
+12776ac631278f479e868e125574e649483827a9 data/c/tags/item/storage_blocks.json
 b98a5378ae1852b44e1d79418303ac9dc792239d data/c/tags/item/storage_blocks/bronze.json
+23752f4d9bc9d9b89d20e92bb61b8a781d2c8095 data/c/tags/item/storage_blocks/conductive_alloy.json
 01e792f1f30f8e933d35333aa3c2f5242fd6d558 data/c/tags/item/storage_blocks/lead.json
+a750a6c4b449450912f0f9d2ed63bc4a19fa819e data/c/tags/item/storage_blocks/pulsating_alloy.json
 ccc0ab9136cb8eb336c4620755493aa4f8acd011 data/c/tags/item/storage_blocks/sapphire.json
 0f217ab077ab7080d5b7cccad291edb076d246ab data/c/tags/item/storage_blocks/silver.json
 4d12516c78f58fc8e4af4cf668f71c4d5dac0e71 data/c/tags/item/storage_blocks/steel.json

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "universalmaterials:block/conductive_alloy_block"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "universalmaterials:tin_block",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:bronze_block",
+      "required": false
+    }
+  ]
+}

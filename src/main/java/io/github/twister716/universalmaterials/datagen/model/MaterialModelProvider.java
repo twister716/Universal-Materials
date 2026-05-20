@@ -108,7 +108,7 @@ public class MaterialModelProvider implements DataProvider {
 
         JsonObject model    = new JsonObject();
         JsonObject textures = new JsonObject();
-        model.addProperty("parent", "minecraft:block/cube_all");
+        model.addProperty("parent", UniversalMaterials.MOD_ID + ":block/tinted_cube");
         textures.addProperty("all", base + iconType);
         model.add("textures", textures);
 
@@ -159,6 +159,8 @@ public class MaterialModelProvider implements DataProvider {
         return output.getOutputFolder(PackOutput.Target.RESOURCE_PACK)
                 .resolve(UniversalMaterials.MOD_ID + "/blockstates/" + id + ".json");
     }
+
+
 
     @Override
     public String getName() { return "Universal Materials Model Provider"; }
