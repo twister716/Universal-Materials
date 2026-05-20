@@ -24,6 +24,9 @@ public class UMMetalMaterials extends UMMaterialRegistry {
 
     // 錫 / Tin
     public static final Material TIN = new Material.Builder("tin")
+            .englishName("Tin")
+            .element(50, "Sn")
+            .description("A soft, malleable metal")
             .color(0xcbeaed).secondaryColor(0x909d9e)
             .iconSet(MaterialIconSet.DULL)
             .appendFlags(GENERATE_INGOT, GENERATE_NUGGET, GENERATE_STORAGE_BLOCK)

@@ -26,25 +26,29 @@ public class UMVanillaMaterials extends UMMaterialRegistry {
     public static final Material IRON = new Material.Builder("iron")
             .color(0xC8C8C8)
             .iconSet(MaterialIconSet.METALLIC)
+            .flags(IS_VANILLA)
             .buildAndRegister();
 
     // 金 / Gold
     public static final Material GOLD = new Material.Builder("gold")
             .color(0xFFD700)
             .iconSet(MaterialIconSet.METALLIC)
+            .flags(IS_VANILLA)
             .buildAndRegister();
 
     // 銅 / Copper
     public static final Material COPPER = new Material.Builder("copper")
             .color(0xFF6600)
             .iconSet(MaterialIconSet.METALLIC)
+            .appendFlags(GENERATE_NUGGET)
+            .flags(IS_VANILLA)
             .buildAndRegister();
 
     // ネザライト / Netherite
     public static final Material NETHERITE = new Material.Builder("netherite")
             .color(0x4A4A4A)
             .iconSet(MaterialIconSet.METALLIC)
-            .appendFlags(GENERATE_INGOT, GENERATE_NUGGET, GENERATE_STORAGE_BLOCK)
+            .appendFlags(GENERATE_NUGGET)
             .flags(IS_VANILLA)
             .buildAndRegister();
 }

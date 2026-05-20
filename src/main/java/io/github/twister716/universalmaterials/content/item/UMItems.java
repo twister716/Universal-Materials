@@ -9,6 +9,7 @@ import io.github.twister716.universalmaterials.api.material.tagprefix.TagPrefix;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.HashMap;
@@ -66,7 +67,7 @@ public class UMItems {
 
         DeferredHolder<Block, Block> blockHolder = UniversalMaterials.BLOCKS.register(
                 blockId, () -> new Block(BlockBehaviour.Properties.of()
-                        .strength(3.0f, 6.0f)
+                        .strength(material.getHardness(), material.getExplosionResistance())
                         .requiresCorrectToolForDrops())
         );
         BLOCK_MAP.put(material.getId() + ":" + prefix.getId(), blockHolder);
@@ -89,3 +90,4 @@ public class UMItems {
         return BLOCK_MAP.get(materialId + ":" + prefixId);
     }
 }
+

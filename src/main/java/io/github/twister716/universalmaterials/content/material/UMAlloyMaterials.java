@@ -26,6 +26,7 @@ public class UMAlloyMaterials extends UMMaterialRegistry {
     // 鋼鉄 / Steel
     public static final Material STEEL = new Material.Builder("steel")
             .englishName("Steel")
+            .description("A strong and easily workable metal made by adding carbon to iron")
             .color(0x808080).secondaryColor(0x3d3d3d)
             .iconSet(MaterialIconSet.METALLIC)
             .appendFlags(GENERATE_INGOT, GENERATE_NUGGET, GENERATE_STORAGE_BLOCK)
@@ -34,6 +35,8 @@ public class UMAlloyMaterials extends UMMaterialRegistry {
 
     // 青銅 / Bronze
     public static final Material BRONZE = new Material.Builder("bronze")
+            .englishName("Bronze")
+            .description("A metal made by adding tin to copper, which has excellent workability and is more resistant to rust than iron")
             .color(0xCD7F32)
             .iconSet(MaterialIconSet.METALLIC)
             .appendFlags(GENERATE_INGOT, GENERATE_NUGGET, GENERATE_STORAGE_BLOCK)

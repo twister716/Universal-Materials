@@ -57,10 +57,10 @@ public class TagPrefixes {
             .build();
 
     public static final TagPrefix RAW_ORE = new TagPrefixBuilder("raw_ore")
-            .idFormat("raw_%s_ore")
-            .enFormat("Raw %s Ore")
-            .itemTagFormat("c:raw_ores/%s")
-            .parentTag("c:raw_ores")
+            .idFormat("raw_%s")
+            .enFormat("Raw %s")
+            .itemTagFormat("c:raw_materials/%s")
+            .parentTag("c:raw_materials")
             .iconType("raw_ore")
             .build();
 

@@ -1,10 +1,6 @@
 {
   "values": [
     {
-      "id": "#c:storage_blocks/netherite",
-      "required": false
-    },
-    {
       "id": "#c:storage_blocks/steel",
       "required": false
     },

@@ -2,6 +2,7 @@ package io.github.twister716.universalmaterials.datagen.tag;
 
 import io.github.twister716.universalmaterials.UniversalMaterials;
 import io.github.twister716.universalmaterials.api.material.Material;
+import io.github.twister716.universalmaterials.api.material.Material;
 import io.github.twister716.universalmaterials.api.material.UMMaterialRegistry;
 import io.github.twister716.universalmaterials.api.material.flag.MaterialFlag;
 import io.github.twister716.universalmaterials.api.material.flag.MaterialFlags;
@@ -39,14 +40,14 @@ public class MaterialBlockTagProvider extends BlockTagsProvider {
 
             for (MaterialFlag flag : material.getPartFlags()) {
                 flag.getTagPrefix().ifPresent(prefix -> {
-                    if (prefix.isBlock()) registerBlockTags(materialName, prefix);
+                    if (prefix.isBlock()) registerBlockTags(material, materialName, prefix);
                 });
             }
 
             if (!material.hasPropertyFlag(MaterialFlags.IS_VANILLA)) {
                 for (MaterialFlag flag : material.getImpliedFlags()) {
                     flag.getTagPrefix().ifPresent(prefix -> {
-                        if (prefix.isBlock()) registerBlockTags(materialName, prefix);
+                        if (prefix.isBlock()) registerBlockTags(material, materialName, prefix);
                     });
                 }
             }
@@ -61,12 +62,16 @@ public class MaterialBlockTagProvider extends BlockTagsProvider {
      *   c:storage_blocks/tin      → universalmaterials:tin_block を追加
      *   c:storage_blocks          → #c:storage_blocks/tin を追加
      */
-    private void registerBlockTags(String materialName, TagPrefix prefix) {
+    private void registerBlockTags(Material material, String materialName, TagPrefix prefix) {
         ResourceLocation blockId = ResourceLocation.fromNamespaceAndPath(
                 UniversalMaterials.MOD_ID, prefix.formatId(materialName));
 
         // ツルハシで採掘可能にする
         tag(BlockTags.MINEABLE_WITH_PICKAXE).addOptional(blockId);
+
+        // 素材の採掘レベルタグを登録する
+        // 例: BlockTags.NEEDS_STONE_TOOL → 石ツルハシ以上が必要
+        tag(material.getMiningLevel()).addOptional(blockId);
 
         // c:タグ（個別 → 親）を登録する
         if (!prefix.getItemTagFormat().isEmpty()) {
@@ -89,3 +94,4 @@ public class MaterialBlockTagProvider extends BlockTagsProvider {
         return "Universal Materials Block Tag Provider";
     }
 }
+

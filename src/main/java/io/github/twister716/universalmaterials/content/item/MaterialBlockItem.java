@@ -3,16 +3,19 @@ package io.github.twister716.universalmaterials.content.item;
 import io.github.twister716.universalmaterials.UniversalMaterials;
 import io.github.twister716.universalmaterials.api.material.Material;
 import io.github.twister716.universalmaterials.api.material.tagprefix.TagPrefix;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.block.Block;
+
+import java.util.List;
 
 /**
  * 素材システムが自動生成するブロックのアイテム形式クラス。
  * BlockItemを継承しており、MaterialItemと同じく名前を動的生成する。
- *
- * 例: "Block of %s" + "Tin" → "Block of Tin"
+ * ツールチップもMaterialItemと同じ方式で表示する。
  */
 public class MaterialBlockItem extends BlockItem {
 
@@ -27,12 +30,18 @@ public class MaterialBlockItem extends BlockItem {
 
     @Override
     public Component getName(ItemStack stack) {
-        String prefixKey  = "tagprefix." + UniversalMaterials.MOD_ID + "." + prefix.getId();
+        String prefixKey    = "tagprefix." + UniversalMaterials.MOD_ID + "." + prefix.getId();
         String materialName = material.getId().split(":")[1];
         String materialKey  = "material." + UniversalMaterials.MOD_ID + "." + materialName;
+        return Component.translatable(prefixKey, Component.translatable(materialKey));
+    }
 
-        return Component.translatable(prefixKey,
-                Component.translatable(materialKey));
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context,
+                                List<Component> tooltip, TooltipFlag flag) {
+        // MaterialItemと共通のツールチップ処理を呼ぶ
+        MaterialItem.appendHoverTextForMaterial(material, tooltip,
+                Screen.hasShiftDown(), Screen.hasControlDown());
     }
 
     public Material getMaterial() { return material; }

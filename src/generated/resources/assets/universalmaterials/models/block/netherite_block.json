@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "universalmaterials:block/material_sets/metallic/storage_block"
-  }
-}

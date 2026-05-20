@@ -42,7 +42,6 @@ public class UMCreativeTabs {
     /** ブロック系素材タブ（保管ブロック） */
     public static final UMTab EQUIPMENT = register(
             "equipment",
-            TagPrefixes.INGOT,
             TagPrefixes.STORAGE_BLOCK
     );
 

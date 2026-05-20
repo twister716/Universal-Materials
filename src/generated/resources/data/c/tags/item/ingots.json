@@ -1,10 +1,6 @@
 {
   "values": [
     {
-      "id": "#c:ingots/netherite",
-      "required": false
-    },
-    {
       "id": "#c:ingots/steel",
       "required": false
     },
