@@ -1,17 +1,23 @@
-// 1.21.1	2026-05-19T17:26:24.0035682	Universal Materials Item Tag Provider
-d08a4d2d3f1719a366cba959ce5fd2fc5d467cb4 data/c/tags/item/ingots.json
+// 1.21.1	2026-05-20T14:34:04.2765833	Universal Materials Item Tag Provider
+78d68b30661c2a406af42b9d3b03cec472105e67 data/c/tags/item/ingots.json
 4907267697132d964a9360c0fea612b1c0cb8b45 data/c/tags/item/ingots/bronze.json
+26e2272c17e56e830588123dff7ae65546b281f5 data/c/tags/item/ingots/lead.json
 184c776e7dd2751084470355fe6b8db9e75336b9 data/c/tags/item/ingots/netherite.json
+2fba9868e55b53cdaf71688c94c068f46f48484e data/c/tags/item/ingots/silver.json
 f659476cc59c1eac69570a3f10b3b468b1fd7429 data/c/tags/item/ingots/steel.json
 d3731d5488b4b72def4c23ee7932f8f8c287f0f6 data/c/tags/item/ingots/tin.json
-0a267c60c9b199bce86ffa408081deff9d59538a data/c/tags/item/nuggets.json
+f360ef5a3d0a2f41e6cbfa26da401600eb35ecda data/c/tags/item/nuggets.json
 611650348312925cac1fa9c8b357eaa2936032a5 data/c/tags/item/nuggets/bronze.json
+e1adf0da0b578d2467b83967a8dd9e3c8bf6741d data/c/tags/item/nuggets/lead.json
 42200a98d5a57c14e5e4d1db0ec9adcebf2b327f data/c/tags/item/nuggets/netherite.json
+cd00c59e2a17fd4322bef8433da50107edafca94 data/c/tags/item/nuggets/silver.json
 4b7359f50f484276150d82aeb09162b86cbd2748 data/c/tags/item/nuggets/steel.json
 63264155aeef9b8010a84197be96b479801f522b data/c/tags/item/nuggets/tin.json
-12a9008588fe82d51080be5d94c98a402d46e8b6 data/c/tags/item/storage_blocks.json
+757b922b403d54b7c46b12d1eff15c4a7229f516 data/c/tags/item/storage_blocks.json
 b98a5378ae1852b44e1d79418303ac9dc792239d data/c/tags/item/storage_blocks/bronze.json
+01e792f1f30f8e933d35333aa3c2f5242fd6d558 data/c/tags/item/storage_blocks/lead.json
 7ae5049e26082a5de4ea11f2282a0060601b7671 data/c/tags/item/storage_blocks/netherite.json
 ccc0ab9136cb8eb336c4620755493aa4f8acd011 data/c/tags/item/storage_blocks/sapphire.json
+0f217ab077ab7080d5b7cccad291edb076d246ab data/c/tags/item/storage_blocks/silver.json
 4d12516c78f58fc8e4af4cf668f71c4d5dac0e71 data/c/tags/item/storage_blocks/steel.json
 d7c834e6125cbcd5b6fbc1d71c2db8f0fb617e1d data/c/tags/item/storage_blocks/tin.json

@@ -13,6 +13,14 @@
       "required": false
     },
     {
+      "id": "#c:storage_blocks/lead",
+      "required": false
+    },
+    {
+      "id": "#c:storage_blocks/silver",
+      "required": false
+    },
+    {
       "id": "#c:storage_blocks/bronze",
       "required": false
     },

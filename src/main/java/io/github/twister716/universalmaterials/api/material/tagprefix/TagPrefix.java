@@ -7,10 +7,10 @@ import java.util.Map;
 
 /**
  * 素材から作られるアイテム・ブロックの種類を定義するクラス。
- * 例: ingot（インゴット）、storage_block（保管ブロック）など。
  *
- * 外部Modからの追加は可能だが、レジストリのロック後は追加・編集・削除が禁止される。
- * KubeJS（ModID: "kubejs"）のみ、同名のTagPrefixの上書きが許可される。
+ * iconType はテクスチャファイル名に対応する。
+ * 例: INGOT の iconType = "ingot"
+ *   → textures/item/material_sets/metallic/ingot.png を参照する
  */
 public class TagPrefix {
 
@@ -27,9 +27,18 @@ public class TagPrefix {
     private final boolean isBlock;
     private final BlockModelType blockModelType;
 
+    /**
+     * テクスチャファイル名。MaterialIconSetのフォルダ内のPNG名に対応する。
+     * 例: "ingot" → material_sets/metallic/ingot.png
+     * nullの場合はモデルJSON生成・カラーハンドラーの対象外になる。
+     */
+    @Nullable
+    private final String iconType;
+
     TagPrefix(String id, String idFormat, String enFormat,
               String itemTagFormat, String parentTag, boolean isBlock,
-              BlockModelType blockModelType, @Nullable String callerModId) {
+              BlockModelType blockModelType, @Nullable String iconType,
+              @Nullable String callerModId) {
         if (locked) {
             throw new IllegalStateException(
                     "The TagPrefix registry is locked, so you cannot add new entries!");
@@ -52,6 +61,7 @@ public class TagPrefix {
         this.parentTag      = parentTag;
         this.isBlock        = isBlock;
         this.blockModelType = blockModelType;
+        this.iconType       = iconType;
     }
 
     public static void lockRegistry()                  { locked = true; }
@@ -71,6 +81,10 @@ public class TagPrefix {
     public String getItemTagFormat()          { return itemTagFormat; }
     public boolean isBlock()                  { return isBlock; }
     public BlockModelType getBlockModelType() { return blockModelType; }
+
+    /** テクスチャファイル名を返す。nullの場合はモデル・カラーハンドラーの対象外。 */
+    @Nullable
+    public String getIconType()               { return iconType; }
 
     @Override
     public String toString() { return "TagPrefix{" + id + "}"; }

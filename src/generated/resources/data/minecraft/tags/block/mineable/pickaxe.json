@@ -13,6 +13,14 @@
       "required": false
     },
     {
+      "id": "universalmaterials:lead_block",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:silver_block",
+      "required": false
+    },
+    {
       "id": "universalmaterials:bronze_block",
       "required": false
     },

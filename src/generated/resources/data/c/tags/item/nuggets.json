@@ -13,6 +13,14 @@
       "required": false
     },
     {
+      "id": "#c:nuggets/lead",
+      "required": false
+    },
+    {
+      "id": "#c:nuggets/silver",
+      "required": false
+    },
+    {
       "id": "#c:nuggets/bronze",
       "required": false
     }

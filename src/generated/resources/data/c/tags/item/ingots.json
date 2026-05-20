@@ -13,6 +13,14 @@
       "required": false
     },
     {
+      "id": "#c:ingots/lead",
+      "required": false
+    },
+    {
+      "id": "#c:ingots/silver",
+      "required": false
+    },
+    {
       "id": "#c:ingots/bronze",
       "required": false
     }

@@ -24,7 +24,7 @@ public class UMMetalMaterials extends UMMaterialRegistry {
 
     // 錫 / Tin
     public static final Material TIN = new Material.Builder("tin")
-            .color(0xDCDCDC)
+            .color(0xcbeaed).secondaryColor(0x909d9e)
             .iconSet(MaterialIconSet.DULL)
             .appendFlags(GENERATE_INGOT, GENERATE_NUGGET, GENERATE_STORAGE_BLOCK)
             .buildAndRegister();
@@ -33,11 +33,13 @@ public class UMMetalMaterials extends UMMaterialRegistry {
     public static final Material LEAD = new Material.Builder("lead")
             .color(0x4A4A6A)
             .iconSet(MaterialIconSet.DULL)
+            .appendFlags(GENERATE_INGOT, GENERATE_NUGGET, GENERATE_STORAGE_BLOCK)
             .buildAndRegister();
 
     // 銀 / Silver
     public static final Material SILVER = new Material.Builder("silver")
             .color(0xDCDCFF)
             .iconSet(MaterialIconSet.METALLIC)
+            .appendFlags(GENERATE_INGOT, GENERATE_NUGGET, GENERATE_STORAGE_BLOCK)
             .buildAndRegister();
 }
