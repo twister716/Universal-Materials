@@ -1,0 +1,24 @@
+{
+  "values": [
+    {
+      "id": "universalmaterials:netherite_block",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:steel_block",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:tin_block",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:bronze_block",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:sapphire_block",
+      "required": false
+    }
+  ]
+}

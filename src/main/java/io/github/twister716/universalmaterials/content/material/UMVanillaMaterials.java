@@ -45,5 +45,6 @@ public class UMVanillaMaterials extends UMMaterialRegistry {
             .color(0x4A4A4A)
             .iconSet(MaterialIconSet.METALLIC)
             .appendFlags(GENERATE_INGOT, GENERATE_NUGGET, GENERATE_STORAGE_BLOCK)
+            .flags(IS_VANILLA)
             .buildAndRegister();
 }

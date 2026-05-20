@@ -1,0 +1,22 @@
+{
+  "itemGroup.universalmaterials.equipment": "Universal Materials: Blocks",
+  "itemGroup.universalmaterials.materials": "Universal Materials: Materials",
+  "material.universalmaterials.bronze": "Bronze",
+  "material.universalmaterials.copper": "Copper",
+  "material.universalmaterials.gold": "Gold",
+  "material.universalmaterials.iron": "Iron",
+  "material.universalmaterials.lead": "Lead",
+  "material.universalmaterials.netherite": "Netherite",
+  "material.universalmaterials.ruby": "Ruby",
+  "material.universalmaterials.sapphire": "Sapphire",
+  "material.universalmaterials.silver": "Silver",
+  "material.universalmaterials.steel": "Steel",
+  "material.universalmaterials.tin": "Tin",
+  "tagprefix.universalmaterials.dust": "%s Dust",
+  "tagprefix.universalmaterials.ingot": "%s Ingot",
+  "tagprefix.universalmaterials.nugget": "%s Nugget",
+  "tagprefix.universalmaterials.ore": "%s Ore",
+  "tagprefix.universalmaterials.plate": "%s Plate",
+  "tagprefix.universalmaterials.raw_ore": "Raw %s Ore",
+  "tagprefix.universalmaterials.storage_block": "Block of %s"
+}

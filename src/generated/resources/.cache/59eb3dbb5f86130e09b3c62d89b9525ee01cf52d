@@ -1,0 +1,6 @@
+// 1.21.1	2026-05-19T17:26:24.0055689	Loot Tables
+ff04fd9cdf47150ab76ff552a22d1732c5f8e06b data/universalmaterials/loot_table/blocks/bronze_block.json
+b606938abda3d88a0f7df21797f64d3b755b86de data/universalmaterials/loot_table/blocks/netherite_block.json
+9cb2416a61c5ba41a21601d33cc68a0d3d446082 data/universalmaterials/loot_table/blocks/sapphire_block.json
+f926c20cc9b5eb6a45eb015cae34efef2c584b03 data/universalmaterials/loot_table/blocks/steel_block.json
+b2d47e6784100774cc3bf7556b9e6228f3db8c4b data/universalmaterials/loot_table/blocks/tin_block.json

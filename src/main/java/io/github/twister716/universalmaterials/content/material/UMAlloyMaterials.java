@@ -26,7 +26,7 @@ public class UMAlloyMaterials extends UMMaterialRegistry {
     // 鋼鉄 / Steel
     public static final Material STEEL = new Material.Builder("steel")
             .englishName("Steel")
-            .color(0x808080)
+            .color(0x808080).secondaryColor(0x3d3d3d)
             .iconSet(MaterialIconSet.METALLIC)
             .appendFlags(GENERATE_INGOT, GENERATE_NUGGET, GENERATE_STORAGE_BLOCK)
             .requireMaterial(UMVanillaMaterials.IRON)

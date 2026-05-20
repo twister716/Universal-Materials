@@ -1,0 +1,20 @@
+{
+  "values": [
+    {
+      "id": "#c:nuggets/netherite",
+      "required": false
+    },
+    {
+      "id": "#c:nuggets/steel",
+      "required": false
+    },
+    {
+      "id": "#c:nuggets/tin",
+      "required": false
+    },
+    {
+      "id": "#c:nuggets/bronze",
+      "required": false
+    }
+  ]
+}

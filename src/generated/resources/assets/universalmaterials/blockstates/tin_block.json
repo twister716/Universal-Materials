@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "universalmaterials:block/tin_block"
+    }
+  }
+}
