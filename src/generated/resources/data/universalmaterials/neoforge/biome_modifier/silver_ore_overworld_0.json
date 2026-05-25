@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": "universalmaterials:silver_ore_overworld_0",
+  "step": "underground_ores"
+}

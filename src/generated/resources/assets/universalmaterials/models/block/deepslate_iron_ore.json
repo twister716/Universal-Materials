@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "universalmaterials:block/generated/deepslate_iron_ore"
+  }
+}

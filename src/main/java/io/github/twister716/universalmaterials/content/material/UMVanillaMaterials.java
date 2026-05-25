@@ -4,6 +4,8 @@ import io.github.twister716.universalmaterials.api.material.AutoMaterialRegistry
 import io.github.twister716.universalmaterials.api.material.Material;
 import io.github.twister716.universalmaterials.api.material.UMMaterialRegistry;
 import io.github.twister716.universalmaterials.api.material.iconset.MaterialIconSet;
+import io.github.twister716.universalmaterials.api.material.tagprefix.TagPrefix;
+import io.github.twister716.universalmaterials.api.material.tagprefix.TagPrefixes;
 import net.minecraft.tags.BlockTags;
 
 import static io.github.twister716.universalmaterials.api.material.flag.MaterialFlags.*;
@@ -25,24 +27,26 @@ public class UMVanillaMaterials extends UMMaterialRegistry {
 
     // 鉄 / Iron
     public static final Material IRON = new Material.Builder("iron")
-            .color(0xC8C8C8)
-            .iconSet(MaterialIconSet.METALLIC)
+            .color(0xf4f4ee)
+            .iconSet(MaterialIconSet.IRON)
+            .appendFlags(GENERATE_ORE)
             .flags(IS_VANILLA)
             .buildAndRegister();
 
     // 金 / Gold
     public static final Material GOLD = new Material.Builder("gold")
             .color(0xFFD700)
-            .iconSet(MaterialIconSet.METALLIC)
+            .iconSet(MaterialIconSet.GOLD)
             .miningLevel(BlockTags.NEEDS_IRON_TOOL)
+            .appendFlags(GENERATE_ORE)
             .flags(IS_VANILLA)
             .buildAndRegister();
 
     // 銅 / Copper
     public static final Material COPPER = new Material.Builder("copper")
             .color(0xFF6600)
-            .iconSet(MaterialIconSet.METALLIC)
-            .appendFlags(GENERATE_NUGGET)
+            .iconSet(MaterialIconSet.COPPER)
+            .appendFlags(GENERATE_NUGGET, GENERATE_ORE)
             .flags(IS_VANILLA)
             .buildAndRegister();
 

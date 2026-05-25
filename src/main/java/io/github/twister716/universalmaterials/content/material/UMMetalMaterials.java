@@ -28,9 +28,9 @@ public class UMMetalMaterials extends UMMaterialRegistry {
             .englishName("Tin")
             .element(50, "Sn")
             .description("A soft, malleable metal")
-            .color(0xcbeaed).secondaryColor(0x909d9e)
+            .color(0xd7f6f9).secondaryColor(0xc0dfe2)
             .iconSet(MaterialIconSet.DULL)
-            .appendFlags(GENERATE_INGOT, GENERATE_NUGGET, GENERATE_STORAGE_BLOCK)
+            .appendFlags(GENERATE_INGOT, GENERATE_NUGGET, GENERATE_STORAGE_BLOCK, GENERATE_ORE, GENERATE_RAW_ORE)
             .buildAndRegister();
 
     // 鉛 / Lead
@@ -38,7 +38,7 @@ public class UMMetalMaterials extends UMMaterialRegistry {
             .color(0x4A4A6A)
             .iconSet(MaterialIconSet.DULL)
             .miningLevel(BlockTags.NEEDS_IRON_TOOL)
-            .appendFlags(GENERATE_INGOT, GENERATE_NUGGET, GENERATE_STORAGE_BLOCK)
+            .appendFlags(GENERATE_INGOT, GENERATE_NUGGET, GENERATE_STORAGE_BLOCK, GENERATE_ORE, GENERATE_RAW_ORE)
             .buildAndRegister();
 
     // 銀 / Silver
@@ -46,6 +46,6 @@ public class UMMetalMaterials extends UMMaterialRegistry {
             .color(0xDCDCFF)
             .iconSet(MaterialIconSet.METALLIC)
             .miningLevel(BlockTags.NEEDS_IRON_TOOL)
-            .appendFlags(GENERATE_INGOT, GENERATE_NUGGET, GENERATE_STORAGE_BLOCK)
+            .appendFlags(GENERATE_INGOT, GENERATE_NUGGET, GENERATE_STORAGE_BLOCK, GENERATE_ORE)
             .buildAndRegister();
 }

@@ -1,7 +1,91 @@
 {
   "values": [
     {
+      "id": "universalmaterials:dripstone_iron_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:granite_iron_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:iron_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:tuff_iron_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:diorite_iron_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:andesite_iron_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:deepslate_iron_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:dripstone_copper_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:granite_copper_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:copper_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:tuff_copper_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:diorite_copper_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:andesite_copper_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:deepslate_copper_ore",
+      "required": false
+    },
+    {
       "id": "universalmaterials:tin_block",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:dripstone_tin_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:granite_tin_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:tin_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:tuff_tin_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:diorite_tin_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:andesite_tin_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:deepslate_tin_ore",
       "required": false
     },
     {

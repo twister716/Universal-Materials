@@ -29,20 +29,21 @@ public class UMCreativeTabs {
 
     // ==================== タブ定義 ====================
 
-    /** アイテム系素材タブ（インゴット・ナゲット・粉・板・原石） */
+    /** アイテム系素材タブ（インゴット・ナゲット・粉・板） */
     public static final UMTab MATERIALS = register(
             "materials",
             TagPrefixes.INGOT,
             TagPrefixes.NUGGET,
             TagPrefixes.DUST,
-            TagPrefixes.PLATE,
-            TagPrefixes.RAW_ORE
+            TagPrefixes.STORAGE_BLOCK,
+            TagPrefixes.PLATE
     );
 
-    /** ブロック系素材タブ（保管ブロック） */
-    public static final UMTab EQUIPMENT = register(
-            "equipment",
-            TagPrefixes.STORAGE_BLOCK
+    /** 鉱石系 */
+    public static final UMTab ORES = register(
+            "ores",
+            TagPrefixes.RAW_ORE,
+            TagPrefixes.ORE
     );
 
     // ==================== 内部処理 ====================

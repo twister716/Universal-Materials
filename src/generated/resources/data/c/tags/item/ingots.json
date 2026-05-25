@@ -19,14 +19,6 @@
     {
       "id": "#c:ingots/bronze",
       "required": false
-    },
-    {
-      "id": "#c:ingots/pulsating_alloy",
-      "required": false
-    },
-    {
-      "id": "#c:ingots/conductive_alloy",
-      "required": false
     }
   ]
 }

@@ -6,6 +6,7 @@ import io.github.twister716.universalmaterials.datagen.loot.MaterialLootTablePro
 import io.github.twister716.universalmaterials.datagen.model.MaterialModelProvider;
 import io.github.twister716.universalmaterials.datagen.tag.MaterialBlockTagProvider;
 import io.github.twister716.universalmaterials.datagen.tag.MaterialTagProvider;
+import io.github.twister716.universalmaterials.datagen.worldgen.MaterialWorldGenProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -33,12 +34,14 @@ public class DataGenerators {
         event.getGenerator().addProvider(event.includeClient(),
                 new MaterialModelProvider(output));
 
-        // ===== サーバー側データ（タグ・ルートテーブル）=====
+        // ===== サーバー側データ（タグ・ルートテーブル・ワールドジェン）=====
         event.getGenerator().addProvider(event.includeServer(),
                 new MaterialTagProvider(output, lookupProvider));
         event.getGenerator().addProvider(event.includeServer(),
                 new MaterialBlockTagProvider(output, lookupProvider));
         event.getGenerator().addProvider(event.includeServer(),
                 new MaterialLootTableProvider(output, lookupProvider));
+        event.getGenerator().addProvider(event.includeServer(),
+                new MaterialWorldGenProvider(output));
     }
 }

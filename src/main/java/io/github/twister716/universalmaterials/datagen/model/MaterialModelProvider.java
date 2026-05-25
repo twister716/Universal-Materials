@@ -8,23 +8,35 @@ import io.github.twister716.universalmaterials.api.material.flag.MaterialFlag;
 import io.github.twister716.universalmaterials.api.material.flag.MaterialFlags;
 import io.github.twister716.universalmaterials.api.material.iconset.MaterialIconSet;
 import io.github.twister716.universalmaterials.api.material.tagprefix.TagPrefix;
+import io.github.twister716.universalmaterials.api.ore.DimensionOreConfig;
+import io.github.twister716.universalmaterials.api.ore.Ore;
+import io.github.twister716.universalmaterials.api.ore.OreRegistry;
+import io.github.twister716.universalmaterials.api.ore.StoneGroup;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 /**
  * アイテム・ブロックのモデルJSONとblockstatesJSONを自動生成するProvider。
  *
- * テクスチャパスはルートIconSetを基準にする。
- * 例: DULL（親=METALLIC）のインゴット → "material_sets/metallic/ingot"
+ * 通常ブロック（保管ブロック等）:
+ *   parent: universalmaterials:block/tinted_cube（1レイヤー着色）
  *
- * DULLのテクスチャをMETALLICから差し替えたい場合は
- * dull/ingot.png を置けばMinecraftのリソースパック機構が自動的に優先してくれる。
+ * 鉱石ブロック（動的テクスチャ方式）:
+ *   parent: minecraft:block/cube_all
+ *   textures.all: universalmaterials:block/generated/<blockId>
+ *
+ *   テクスチャ実体は TextureGenerator が実行時に生成する。
+ *   generated/ パスは VirtualPackResources から提供される。
+ *   手動テクスチャを置く場合は textures/block/custom/ore/<blockId>.png を配置する
+ *   （TextureGeneratorが自動的にスキップし、手動テクスチャが優先される）。
  */
 public class MaterialModelProvider implements DataProvider {
 
@@ -41,6 +53,7 @@ public class MaterialModelProvider implements DataProvider {
         for (Material material : UMMaterialRegistry.getRegistrationOrder()) {
             String materialName = material.getId().split(":")[1];
 
+            // 通常アイテム・ブロックのモデル生成
             for (MaterialFlag flag : material.getPartFlags()) {
                 flag.getTagPrefix().ifPresent(prefix ->
                         generateModels(cache, futures, material, materialName, prefix));
@@ -52,6 +65,12 @@ public class MaterialModelProvider implements DataProvider {
                             generateModels(cache, futures, material, materialName, prefix));
                 }
             }
+
+            // 鉱石ブロックのモデル生成
+            if (material.hasPartFlag(MaterialFlags.GENERATE_ORE)
+                    && OreRegistry.hasSettings(material)) {
+                generateOreModels(cache, futures, material, materialName);
+            }
         }
 
         return CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
@@ -60,8 +79,7 @@ public class MaterialModelProvider implements DataProvider {
     private void generateModels(CachedOutput cache, List<CompletableFuture<?>> futures,
                                 Material material, String materialName, TagPrefix prefix) {
         if (prefix.getIconType() == null) return;
-
-        String itemId   = prefix.formatId(materialName);
+        String itemId = prefix.formatId(materialName);
         MaterialIconSet iconSet = material.getIconSet();
         if (iconSet == null) return;
 
@@ -75,14 +93,47 @@ public class MaterialModelProvider implements DataProvider {
     }
 
     /**
-     * アイテムモデルJSONを生成する。
+     * 鉱石ブロックのモデル・blockstates・アイテムモデルを全石種分生成する。
      *
-     * テクスチャパスはルートIconSetを基準にする。
-     * 例: DULL（親=METALLIC）→ "material_sets/metallic/ingot"
-     *
-     * DULLのテクスチャを差し替えたい場合は dull/ingot.png を置けば
-     * Minecraftのリソースパック機構が自動的に優先する。
+     * テクスチャパスは "universalmaterials:block/generated/<blockId>" を参照する。
+     * このパスは VirtualPackResources → TextureGenerator が実行時に提供する。
      */
+    private void generateOreModels(CachedOutput cache, List<CompletableFuture<?>> futures,
+                                   Material material, String materialName) {
+        var settings = OreRegistry.getSettings(material);
+        Set<Ore> registered = new HashSet<>();
+
+        for (DimensionOreConfig config : settings.getOverworld()) collectOres(config, registered);
+        for (DimensionOreConfig config : settings.getNether())    collectOres(config, registered);
+        for (DimensionOreConfig config : settings.getEnd())       collectOres(config, registered);
+
+        for (Ore ore : registered) {
+            String blockId = ore.formatBlockId(materialName);
+            generateOreBlockModel(cache, futures, blockId);
+            generateBlockState(cache, futures, blockId);
+            generateBlockItemModel(cache, futures, blockId);
+        }
+    }
+
+    /**
+     * 鉱石ブロックモデルJSONを生成する。
+     *
+     * parent: minecraft:block/cube_all（全面同一テクスチャのシンプルなキューブ）
+     * textures.all: VirtualPackResourcesが提供する動的生成テクスチャを参照する
+     */
+    private void generateOreBlockModel(CachedOutput cache, List<CompletableFuture<?>> futures,
+                                       String blockId) {
+        JsonObject model    = new JsonObject();
+        JsonObject textures = new JsonObject();
+        model.addProperty("parent", "minecraft:block/cube_all");
+        // "block/generated/<blockId>" → VirtualPackResources が提供するパス
+        textures.addProperty("all",
+                UniversalMaterials.MOD_ID + ":block/generated/" + blockId);
+        model.add("textures", textures);
+
+        futures.add(DataProvider.saveStable(cache, model, getBlockModelPath(blockId)));
+    }
+
     private void generateItemModel(CachedOutput cache, List<CompletableFuture<?>> futures,
                                    String itemId, MaterialIconSet iconSet, String iconType) {
         String setName = getRoot(iconSet).getName();
@@ -97,10 +148,6 @@ public class MaterialModelProvider implements DataProvider {
         futures.add(DataProvider.saveStable(cache, model, getItemModelPath(itemId)));
     }
 
-    /**
-     * ブロックモデルJSONを生成する。
-     * テクスチャパスはルートIconSetを基準にする。
-     */
     private void generateBlockModel(CachedOutput cache, List<CompletableFuture<?>> futures,
                                     String blockId, MaterialIconSet iconSet, String iconType) {
         String setName = getRoot(iconSet).getName();
@@ -133,16 +180,18 @@ public class MaterialModelProvider implements DataProvider {
         futures.add(DataProvider.saveStable(cache, model, getItemModelPath(blockId)));
     }
 
-    /**
-     * IconSetの親チェーンを辿ってルート（parentがnull）を返す。
-     * 例: DULL → METALLIC（ルート）
-     */
     private static MaterialIconSet getRoot(MaterialIconSet iconSet) {
         MaterialIconSet current = iconSet;
-        while (current.getParent() != null) {
-            current = current.getParent();
-        }
+        while (current.getParent() != null) current = current.getParent();
         return current;
+    }
+
+    private void collectOres(DimensionOreConfig config, Set<Ore> result) {
+        for (StoneGroup group : config.getStones()) {
+            for (Ore ore : group.getOres()) {
+                if (!config.isExcluded(ore)) result.add(ore);
+            }
+        }
     }
 
     private Path getItemModelPath(String id) {
@@ -159,8 +208,6 @@ public class MaterialModelProvider implements DataProvider {
         return output.getOutputFolder(PackOutput.Target.RESOURCE_PACK)
                 .resolve(UniversalMaterials.MOD_ID + "/blockstates/" + id + ".json");
     }
-
-
 
     @Override
     public String getName() { return "Universal Materials Model Provider"; }

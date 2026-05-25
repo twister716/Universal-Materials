@@ -21,14 +21,6 @@
       "required": false
     },
     {
-      "id": "#c:storage_blocks/pulsating_alloy",
-      "required": false
-    },
-    {
-      "id": "#c:storage_blocks/conductive_alloy",
-      "required": false
-    },
-    {
       "id": "#c:storage_blocks/sapphire",
       "required": false
     }

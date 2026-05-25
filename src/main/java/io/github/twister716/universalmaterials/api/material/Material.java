@@ -72,6 +72,10 @@ public class Material {
      */
     @Nullable private final String compatName;
 
+    // 着色を無効にするTagPrefixのセット
+    // このSetに含まれるPrefixのテクスチャは着色処理をスキップする
+    private final Set<TagPrefix> noColorizePrefixes;
+
     // ==================== コンストラクタ ====================
 
     private Material(Builder b) {
@@ -98,6 +102,7 @@ public class Material {
         this.soundType           = b.soundType;
         this.compatModId         = b.compatModId;
         this.compatName          = b.compatName;
+        this.noColorizePrefixes  = Collections.unmodifiableSet(b.noColorizePrefixes);
     }
 
     // ==================== 基本情報 ====================
@@ -224,6 +229,18 @@ public class Material {
     @Nullable
     public String getCompatModId() { return compatModId; }
 
+    /**
+     * 指定したTagPrefixの着色が無効になっているか返す。
+     * Material.Builder.noColorize(TagPrefix...) で設定する。
+     * TextureGeneratorがこれを参照して着色をスキップする。
+     *
+     * 例: バニラ鉄の RAW_ORE（raw_iron）は専用テクスチャを持つため着色不要
+     *   → .noColorize(TagPrefixes.RAW_ORE) で着色をオフにする
+     */
+    public boolean isNoColorize(TagPrefix prefix) {
+        return noColorizePrefixes.contains(prefix);
+    }
+
     // ==================== その他 ====================
 
     @Override
@@ -263,6 +280,9 @@ public class Material {
         // Mod連携
         @Nullable private String compatModId = null;
         @Nullable private String compatName  = null;
+
+        // Prefix単位の着色オフ設定
+        private final Set<TagPrefix> noColorizePrefixes = new HashSet<>();
 
         public Builder(String name) {
             this.name        = name;
@@ -410,6 +430,21 @@ public class Material {
 
         public Builder requireMaterial(Material... materials) {
             this.requiredMaterials.addAll(Arrays.asList(materials));
+            return this;
+        }
+
+        /**
+         * 指定したTagPrefixのテクスチャ着色を無効にする。
+         * バニラ素材のように専用テクスチャを持つPrefixに使う。
+         *
+         * 例: バニラ鉄の原石（raw_iron）は専用テクスチャを持つため着色不要
+         *   → .noColorize(TagPrefixes.RAW_ORE)
+         *
+         * 複数まとめて指定できる:
+         *   → .noColorize(TagPrefixes.RAW_ORE, TagPrefixes.INGOT)
+         */
+        public Builder noColorize(TagPrefix... prefixes) {
+            noColorizePrefixes.addAll(Arrays.asList(prefixes));
             return this;
         }
 

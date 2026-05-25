@@ -25,6 +25,10 @@ public class MaterialFlags {
     public static final MaterialFlag GENERATE_INGOT =
             new MaterialFlag("generate_ingot", TagPrefixes.INGOT);
 
+    /** 宝石を自動生成する。例: Diamond */
+    public static final MaterialFlag GENERATE_GEM =
+            new MaterialFlag("generate_gem", TagPrefixes.GEM);
+
     /** ナゲットを自動生成する。例: Tin Nugget */
     public static final MaterialFlag GENERATE_NUGGET =
             new MaterialFlag("generate_nugget", TagPrefixes.NUGGET);

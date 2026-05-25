@@ -1,6 +1,90 @@
 {
   "values": [
     {
+      "id": "universalmaterials:dripstone_iron_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:granite_iron_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:iron_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:tuff_iron_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:diorite_iron_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:andesite_iron_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:deepslate_iron_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:dripstone_gold_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:granite_gold_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:gold_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:tuff_gold_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:diorite_gold_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:andesite_gold_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:deepslate_gold_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:dripstone_copper_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:granite_copper_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:copper_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:tuff_copper_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:diorite_copper_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:andesite_copper_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:deepslate_copper_ore",
+      "required": false
+    },
+    {
       "id": "universalmaterials:steel_block",
       "required": false
     },
@@ -9,7 +93,63 @@
       "required": false
     },
     {
+      "id": "universalmaterials:dripstone_tin_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:granite_tin_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:tin_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:tuff_tin_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:diorite_tin_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:andesite_tin_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:deepslate_tin_ore",
+      "required": false
+    },
+    {
       "id": "universalmaterials:lead_block",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:dripstone_lead_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:granite_lead_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:lead_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:tuff_lead_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:diorite_lead_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:andesite_lead_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:deepslate_lead_ore",
       "required": false
     },
     {
@@ -17,15 +157,35 @@
       "required": false
     },
     {
+      "id": "universalmaterials:dripstone_silver_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:granite_silver_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:silver_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:tuff_silver_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:diorite_silver_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:andesite_silver_ore",
+      "required": false
+    },
+    {
+      "id": "universalmaterials:deepslate_silver_ore",
+      "required": false
+    },
+    {
       "id": "universalmaterials:bronze_block",
-      "required": false
-    },
-    {
-      "id": "universalmaterials:pulsating_alloy_block",
-      "required": false
-    },
-    {
-      "id": "universalmaterials:conductive_alloy_block",
       "required": false
     },
     {

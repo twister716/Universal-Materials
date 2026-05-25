@@ -14,6 +14,14 @@ public class TagPrefixes {
             .iconType("ingot")
             .build();
 
+    public static final TagPrefix GEM = new TagPrefixBuilder("gem")
+            .idFormat("%s")
+            .enFormat("%s")
+            .itemTagFormat("c:gems/%s")
+            .parentTag("c:gems")
+            .iconType("gem")
+            .build();
+
     public static final TagPrefix NUGGET = new TagPrefixBuilder("nugget")
             .idFormat("%s_nugget")
             .enFormat("%s Nugget")

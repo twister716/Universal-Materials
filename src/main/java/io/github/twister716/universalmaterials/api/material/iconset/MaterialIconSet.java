@@ -38,6 +38,15 @@ public class MaterialIconSet {
     /** 艶消し金属テクスチャセット。METALLICを親とする */
     public static final MaterialIconSet DULL = new MaterialIconSet("dull", METALLIC, null);
 
+    /** バニラ鉄テクスチャセット。METALLICを親とする */
+    public static final MaterialIconSet IRON = new MaterialIconSet("iron", METALLIC, null);
+
+    /** バニラ鉄テクスチャセット。METALLICを親とする */
+    public static final MaterialIconSet GOLD = new MaterialIconSet("gold", METALLIC, null);
+
+    /** バニラ鉄テクスチャセット。METALLICを親とする */
+    public static final MaterialIconSet COPPER = new MaterialIconSet("copper", METALLIC, null);
+
     // ==================== フィールド ====================
 
     private final String name;

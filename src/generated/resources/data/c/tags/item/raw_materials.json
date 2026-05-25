@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "#c:raw_materials/tin",
+      "required": false
+    },
+    {
+      "id": "#c:raw_materials/lead",
+      "required": false
+    }
+  ]
+}

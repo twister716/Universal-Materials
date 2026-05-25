@@ -3,6 +3,8 @@ package io.github.twister716.universalmaterials.content.item;
 import io.github.twister716.universalmaterials.UniversalMaterials;
 import io.github.twister716.universalmaterials.api.material.Material;
 import io.github.twister716.universalmaterials.api.material.tagprefix.TagPrefix;
+import io.github.twister716.universalmaterials.api.material.tagprefix.TagPrefixes;
+import io.github.twister716.universalmaterials.client.OreTooltipHandler;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
@@ -18,11 +20,9 @@ import java.util.List;
  * 素材システムが自動生成するアイテムのクラス。
  * アイテム名は翻訳キーの組み合わせで動的に生成する。
  *
- * ツールチップの展開:
- *   通常:      [Hold Shift for material info]
- *   Shift押下: 素材情報
- *   Ctrl押下:  詳細情報（将来拡張用）
- *   両方:      素材情報 + 詳細情報
+ * ツールチップの振り分け:
+ *   prefix == RAW_ORE → OreTooltipHandler.appendRawOreTooltip()（原石専用）
+ *   それ以外           → appendHoverTextForMaterial()（素材汎用）
  */
 public class MaterialItem extends Item {
 
@@ -46,12 +46,17 @@ public class MaterialItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context,
                                 List<Component> tooltip, TooltipFlag flag) {
+        // RAW_OREは鉱石専用ツールチップ（石種なし）を使う
+        if (prefix == TagPrefixes.RAW_ORE) {
+            OreTooltipHandler.appendRawOreTooltip(material, tooltip);
+            return;
+        }
         appendHoverTextForMaterial(material, tooltip,
                 Screen.hasShiftDown(), Screen.hasControlDown());
     }
 
     /**
-     * Shift/Ctrl判定込みのツールチップ追加処理。
+     * Shift/Ctrl判定込みの素材ツールチップ追加処理。
      * MaterialItem・MaterialBlockItem・MaterialTooltipHandler（バニラ用）から呼ばれる。
      */
     public static void appendHoverTextForMaterial(Material material, List<Component> tooltip,
@@ -67,22 +72,15 @@ public class MaterialItem extends Item {
         if (shiftDown) {
             appendMaterialTooltip(material, tooltip);
         }
-        // Ctrl: 将来の詳細展開用（現在は空）
     }
 
-    /**
-     * 素材情報をツールチップに追加する。
-     * MaterialTooltipHandlerからも呼ばれる。
-     */
     public static void appendMaterialTooltip(Material material, List<Component> tooltip) {
-        // English MatName: ハードコードで直接表示
         tooltip.add(Component.translatable(
                         "tooltip.universalmaterials.english_mat_name",
                         Component.literal(material.getFullName())
                                 .withStyle(ChatFormatting.BOLD))
                 .withStyle(ChatFormatting.DARK_AQUA));
 
-        // Local MatName: ゲーム内言語が英語以外の時のみ表示
         var minecraft = Minecraft.getInstance();
         if (minecraft != null) {
             String langCode = minecraft.getLanguageManager().getSelected();
@@ -95,7 +93,6 @@ public class MaterialItem extends Item {
             }
         }
 
-        // Atomic number / Element symbol（合金・化合物は非表示）
         if (!material.isAlloyOrCompound()) {
             tooltip.add(Component.translatable(
                             "tooltip.universalmaterials.atomic_number",
@@ -112,7 +109,6 @@ public class MaterialItem extends Item {
             }
         }
 
-        // Material info（descriptionが設定されている場合のみ）
         String descKey = material.getDescriptionKey();
         if (descKey != null) {
             tooltip.add(Component.translatable(
@@ -122,19 +118,15 @@ public class MaterialItem extends Item {
                     .withStyle(ChatFormatting.GREEN));
         }
 
-        // Compat Material（compatNameが設定されている場合のみ表示）
-        // 例: "Thermal Expansion Compat Material"
         if (material.getCompatName() != null
                 && material.getCompatModId() != null
                 && ModList.get().isLoaded(material.getCompatModId())) {
             tooltip.add(Component.translatable(
                             "tooltip.universalmaterials.compat_material",
-                            Component.literal(material.getCompatName()))
+                            Component.literal(material.getCompatName()).withStyle(ChatFormatting.GOLD))
                     .withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.BOLD));
         }
     }
-
-    protected boolean hasDetails() { return false; }
 
     public Material getMaterial() { return material; }
     public TagPrefix getPrefix()  { return prefix; }
